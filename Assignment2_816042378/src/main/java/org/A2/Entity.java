@@ -38,20 +38,20 @@ public abstract class  Entity {
         return getHealth() > 0;
     }
 
-    public int takeDamage(int damage) {
-        if (isAlive()) {
-            System.out.println("player's health: "+ getHealth());
-            System.out.println(damage);
-            setHealth(getHealth() - damage);
+    public void takeDamage(int damage) {
+        health -= damage;
+
+        if (health < 0) {
+            health = 0;
         }
-        return damage;
     }
 
     public abstract String getType();
 
+    @Override
     public String toString() {
-        return "[ " + getType() +" ]" + getName() +"(HP : " + getHealth() +", ATK: "+ getAttackPower() +")";
+        return "["+getType()+"] " + getName() +" (HP : " + getHealth() +", ATK: "+ getAttackPower() +")";
     }
 
-    public abstract String attack(Entity target);
+
 }

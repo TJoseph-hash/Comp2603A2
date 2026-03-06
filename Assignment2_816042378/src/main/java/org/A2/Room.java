@@ -7,14 +7,16 @@ public class Room {
      private ArrayList<Enemy> enemies;
      private ArrayList<Item> loot;
 
-     public Room(String name, ArrayList<Enemy> enemies, ArrayList<Item> loot){
+     public Room(String name){
          this.name = name;
          this.enemies = new ArrayList<>();
          this.loot= new ArrayList<>();
      }
      public String getName(){return name;}
      public void addEnemy(Enemy enemy){enemies.add(enemy);}
-     public void addloot(Item item){loot.add(item);}
+
+     public void addLoot(Item item){loot.add(item);}
+
      public ArrayList<Enemy> getEnemies(){return enemies;}
      public ArrayList<Item> getLoot(){return loot;}
      public ArrayList<Enemy> getAliveEnemies(){
@@ -34,9 +36,9 @@ public class Room {
           return true;
      }
      public String toString(){
-         return  "Room: " + getName() + "[ Enemies: "+ getEnemies() +" Loot: " + getLoot()+ "]";
+         return  "Room: " + this.getName()+ " [Enemies: "+ this.getEnemies().size() +", Loot: " + this.getLoot().size() + "]";
      }
 
 
-     
+
 }
